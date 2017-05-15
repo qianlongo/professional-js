@@ -30,8 +30,15 @@
         <div class="reference-point">我是参考节点</div>
       </div>
     </div>
-    <div class="replaceChild">
-
+    <div class="replace-child">
+      <h2>replaceChild 点击下列任何一个按钮请再刷新页面试其他一个按钮</h2>
+      <button>要插入的节点已经在文档树中</button>
+      <button>要插入的节点是新创建的元素</button>
+      <div class="replace-child-box">
+        <div class="has-exist">我是第一个已经存在的元素</div>
+        <div class="replace-ele">我是要被替换的元素</div>
+        <div class="has-exist2">我是第三个已经存在的元素</div>
+      </div>
     </div>
   </div>
   <script>
@@ -53,6 +60,7 @@
         init () {
           this.appendChild()
           this.insertBefore()
+          this.replaceChild()
         },
         appendChild () {
           let btns = $('.append-child button')
@@ -87,6 +95,23 @@
 
           btns[1].addEventListener('click', () => {
             insertBeforeBox.appendChild(insertBefore(0))
+          }, false)
+        },
+        replaceChild () {
+          let btns = $('.replace-child button')
+          let hasExist = $('.replace-child .has-exist')[0]
+          let replaceEle = $('.replace-child .replace-ele')[0]
+          let replaceChildBox = $('.replace-child .replace-child-box')[0]
+          let iCount = 0
+          let newEle = createEle('div', 'red')
+              newEle.innerHTML = '我是新创建的节点'
+
+          btns[0].addEventListener('click', () => {
+            replaceChildBox.replaceChild(hasExist, replaceEle)
+          }, false)
+
+          btns[1].addEventListener('click', () => {
+            replaceChildBox.replaceChild(newEle, replaceEle)
           }, false)
         }
       }
