@@ -57,6 +57,18 @@ firstChild和lastChild也分别指向第一个和最后一个子节点
 1. 将childNode节点添加到parentNode节点末尾
 2. 如果childNode节点已经在文档中存在，则从原来的位置移动到parentNode的末尾。
 
-[appendChild用法链接]
+[appendChild用法链接](https://qianlongo.github.io/professional-js/examples/%E7%AC%AC%E5%8D%81%E7%AB%A0-DOM/%E6%93%8D%E4%BD%9C%E8%8A%82%E7%82%B9.html)
+
+**parentNode.insertBefore(要插入的节点, 作为参照的节点)**
+
+1. 如果`作为参照的节点`不为null，`则要插入的节点`最终会插入到`作为参照的节点`前面。
+2. 如果`作为参照的节点`为null，则其作用与`appendChild`类似
+3. 该方法执行之后返回`要插入的节点`
+
+[insertBefore的用法](https://qianlongo.github.io/professional-js/examples/%E7%AC%AC%E5%8D%81%E7%AB%A0-DOM/%E6%93%8D%E4%BD%9C%E8%8A%82%E7%82%B9.html)
+
+
+
+
 
 

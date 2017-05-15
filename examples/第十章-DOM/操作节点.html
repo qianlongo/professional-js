@@ -21,8 +21,14 @@
         <span class="has-exist">我是已经存在的元素</span>
       </div>
     </div>
-    <div class="insertBefore">
-
+    <div class="insert-before">
+      <h2>insertBefore</h2>
+      <button>作为参考的节点不为null</button>
+      <button>作为参考的节点为null</button>
+      <div class="insert-before-box">
+        <div>我是第一个元素</div>
+        <div class="reference-point">我是参考节点</div>
+      </div>
     </div>
     <div class="replaceChild">
 
@@ -46,20 +52,41 @@
       let app = {
         init () {
           this.appendChild()
+          this.insertBefore()
         },
         appendChild () {
           let btns = $('.append-child button')
           let hasExist = $('.append-child .has-exist')[0]
           let appendChildBox = $('.append-child .append-child-box')[0]
+          let iCount = 0
 
           btns[0].addEventListener('click', () => {
             let notExist = createEle('div', 'red')
-                notExist.innerHTML = '我是原来不存在的节点'
+                notExist.innerHTML = '我是原来不存在的节点' + iCount++
             appendChildBox.appendChild(notExist)
           }, false)
 
           btns[1].addEventListener('click', () => {
             appendChildBox.appendChild(hasExist)
+          }, false)
+        },
+        insertBefore () {
+          let btns = $('.insert-before button')
+          let referencePoint = $('.insert-before .reference-point')[0]
+          let insertBeforeBox = $('.insert-before .insert-before-box')[0]
+          let iCount = 0
+          let insertBefore = (hasReference) => {
+            let notExist = createEle('div', 'red')
+                notExist.innerHTML = (hasReference ? '我是要插入到参考节点的前面的' : '我要插入的参考点为null，所以和appendChild效果类似') + iCount++
+            return notExist
+          }
+          
+          btns[0].addEventListener('click', () => {
+            insertBeforeBox.insertBefore(insertBefore(1), referencePoint)
+          }, false)
+
+          btns[1].addEventListener('click', () => {
+            insertBeforeBox.appendChild(insertBefore(0))
           }, false)
         }
       }
