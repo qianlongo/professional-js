@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>appendChild insertBefore replaceChild</title>
+  <style>
+    .red{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>appendChild</h2>
+    <div class="append-child">
+      <button>添加不存在的元素</button>
+      <button>添加已经存在的元素到末尾</button>
+      <div class="append-child-box">
+        <span class="has-exist">我是已经存在的元素</span>
+      </div>
+    </div>
+    <div class="insertBefore">
+
+    </div>
+    <div class="replaceChild">
+
+    </div>
+  </div>
+  <script>
+    (() => {
+      let doc = document
+      let $ = (selector, context) => {
+        return (context && context || doc).querySelectorAll(selector)
+      }
+      createEle = (tagName, iClass) => {
+         let ele = doc.createElement(tagName)
+
+         if (iClass !== void 0) {
+          ele.className = iClass
+         }
+
+         return ele
+      }
+      let app = {
+        init () {
+          this.appendChild()
+        },
+        appendChild () {
+          let btns = $('.append-child button')
+          let hasExist = $('.append-child .has-exist')[0]
+          let appendChildBox = $('.append-child .append-child-box')[0]
+
+          btns[0].addEventListener('click', () => {
+            let notExist = createEle('div', 'red')
+                notExist.innerHTML = '我是原来不存在的节点'
+            appendChildBox.appendChild(notExist)
+          }, false)
+
+          btns[1].addEventListener('click', () => {
+            appendChildBox.appendChild(hasExist)
+          }, false)
+        }
+      }
+
+      app.init()
+    })()
+  </script>
+</body>
+</html>

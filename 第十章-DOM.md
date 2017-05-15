@@ -37,3 +37,26 @@ var lastChild = eles[len - 1] or eles.item(len - 1)
 ## 节点之间的关系
 
 > 节点之间的关系是多样的，两个节点之间可以父子节点，祖孙节点，兄弟节点等等
+
+**previousSibling**
+**nextSibling**
+**firstChild**
+**lastChild**
+
+当一个列表中只存在一个节点，那么previousSibling和nextSibling都为null
+
+firstChild和lastChild也分别指向第一个和最后一个子节点
+
+
+## 操作节点
+
+> 我们可以用`appendChild`、`insertBefore`、`replaceChild`来进行常见的节点之间的操作
+
+**parentNode.appendChild(childNode)**
+
+1. 将childNode节点添加到parentNode节点末尾
+2. 如果childNode节点已经在文档中存在，则从原来的位置移动到parentNode的末尾。
+
+[appendChild用法链接]
+
+
