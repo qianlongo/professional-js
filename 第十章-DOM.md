@@ -77,6 +77,14 @@ firstChild和lastChild也分别指向第一个和最后一个子节点
 
 [removeChild的用法](https://qianlongo.github.io/professional-js/examples/%E7%AC%AC%E5%8D%81%E7%AB%A0-DOM/%E6%93%8D%E4%BD%9C%E8%8A%82%E7%82%B9.html)
 
+**ele.cloneNode(true or other)**
+
+1. 克隆节点，如果传入的值为true，则深度克隆，包括文本节点等
+2. 如果传入为false 或者不传入，则浅复制该节点本身
+3. 注意复制节点并不会连同事件也复制，但是ie有bug，会连同事件一起复制
+
+[cloneNode的用法](https://qianlongo.github.io/professional-js/examples/%E7%AC%AC%E5%8D%81%E7%AB%A0-DOM/%E6%93%8D%E4%BD%9C%E8%8A%82%E7%82%B9.html)
+
 
 
 

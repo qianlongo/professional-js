@@ -48,6 +48,19 @@
         <div class="has-exist2">我是第二个已经存在的元素</div>
       </div>
     </div>
+    <div class="clone-node-child">
+      <h2>cloneNode 请打开console控制台看输出效果</h2>
+      <button>深度克隆</button>
+      <button>浅克隆</button>
+      <div class="clone-node-box">
+        <span>我是第一个元素</span>
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ul> 
+      </div>
+    </div>
   </div>
   <script>
     (() => {
@@ -70,6 +83,7 @@
           this.insertBefore()
           this.replaceChild()
           this.removeChild()
+          this.cloneNode()
         },
         appendChild () {
           let btns = $('.append-child button')
@@ -130,6 +144,18 @@
 
           btns[0].addEventListener('click', () => {
             removeChildBox.removeChild(hasExist)
+          }, false)
+        },
+        cloneNode () {
+          let btns = $('.clone-node-child button')
+          let cloneNodeBox = $('.clone-node-child .clone-node-box')[0]
+
+          btns[0].addEventListener('click', () => {
+            console.log(cloneNodeBox.cloneNode(true))
+          }, false)
+
+          btns[1].addEventListener('click', () => {
+            console.log(cloneNodeBox.cloneNode())
           }, false)
         }
       }
