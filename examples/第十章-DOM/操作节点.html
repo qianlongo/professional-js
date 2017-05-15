@@ -40,6 +40,14 @@
         <div class="has-exist2">我是第三个已经存在的元素</div>
       </div>
     </div>
+    <div class="remove-child">
+      <h2>removeChild</h2>
+      <button>移除已经存在的节点</button>
+      <div class="remove-child-box">
+        <div class="has-exist">我是已经存在的元素</div>
+        <div class="has-exist2">我是第二个已经存在的元素</div>
+      </div>
+    </div>
   </div>
   <script>
     (() => {
@@ -61,6 +69,7 @@
           this.appendChild()
           this.insertBefore()
           this.replaceChild()
+          this.removeChild()
         },
         appendChild () {
           let btns = $('.append-child button')
@@ -112,6 +121,15 @@
 
           btns[1].addEventListener('click', () => {
             replaceChildBox.replaceChild(newEle, replaceEle)
+          }, false)
+        },
+        removeChild () {
+          let btns = $('.remove-child button')
+          let hasExist = $('.remove-child .has-exist')[0]
+          let removeChildBox = $('.remove-child .remove-child-box')[0]
+
+          btns[0].addEventListener('click', () => {
+            removeChildBox.removeChild(hasExist)
           }, false)
         }
       }

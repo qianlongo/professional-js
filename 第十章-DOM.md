@@ -69,7 +69,15 @@ firstChild和lastChild也分别指向第一个和最后一个子节点
 
 **parentNode.replaceChild(要插入的节点, 要替换的节点)**
 
-1. [replaceChild的用法](https://qianlongo.github.io/professional-js/examples/%E7%AC%AC%E5%8D%81%E7%AB%A0-DOM/%E6%93%8D%E4%BD%9C%E8%8A%82%E7%82%B9.html)
+1. `要插入的节点`如果是原来已经存在，则从原来的位置移动到`要替换的节点`位置前面
+
+[replaceChild的用法](https://qianlongo.github.io/professional-js/examples/%E7%AC%AC%E5%8D%81%E7%AB%A0-DOM/%E6%93%8D%E4%BD%9C%E8%8A%82%E7%82%B9.html)
+
+**parentNode.removeChild(childNode)**
+
+[removeChild的用法](https://qianlongo.github.io/professional-js/examples/%E7%AC%AC%E5%8D%81%E7%AB%A0-DOM/%E6%93%8D%E4%BD%9C%E8%8A%82%E7%82%B9.html)
+
+
 
 
 
