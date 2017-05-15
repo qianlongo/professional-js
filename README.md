@@ -8,3 +8,5 @@
 
 
 [第七章-函数表达式](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F.md)
+
+[第十章-DOM](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC%E5%8D%81%E7%AB%A0-DOM.md)
