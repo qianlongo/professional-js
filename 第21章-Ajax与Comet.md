@@ -211,3 +211,19 @@ var allHeaders = xhr.getAllResponseHeaders()
 
 当然了客户端在发起请求的时候可以自定义请求头部信息，服务端同样可以返回客户端一些自定义的头部信息。
 
+## 21.1.3 GET请求
+
+> GET是最常见的请求类型，最常用于向服务器查询某些信息，将查询字符串跟在url的后面，以便将信息发送给服务器。，对于XHR而言传入open方法的url后的查询字符串，必须经过正确的编码（即名和值都必须使用encodeURIComponent()进行处理）才行。
+ 
+``` javascript
+function addURLParam (url, name, value) {
+  url += (url.indexOf('?') === -1 ? '?' : '&')
+  url += encodeURIComponent(name) + '=' + encodeURIComponent(value)
+  return url
+}
+
+```
+
+
+
+
