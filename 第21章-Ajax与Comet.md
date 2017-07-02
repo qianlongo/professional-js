@@ -177,3 +177,37 @@ xhr.send(null)
 6. Cookie : 当前页面设置的任何cookie
 7. Host : 发出的请求所在的域
 8. Referer : 发出请求的页面URI (`特别注意：这个单词正确拼写应该是referrer,但是HTTP规范把单词拼错了，也只能将错就错了`)
+
+**可以使用`xhr.setRequestHeader`来设置自定义的请求头部信息**
+
+该方法接收两个参数，即头部字段的名称和头部字段的值。
+
+**如果要成功的发送请求头部信息，必须在调用open方法之后并且调用send方法之前调用setRequesHeader方法**，比如
+
+``` javascript
+var xhr = createXHR()
+xhr.onreadystatechange = function () {
+  if (xhr.readyState === 4) {
+    if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
+       console.log((xhr.responseText))
+    }
+  }
+}
+xhr.open('get', 'example', true)
+xhr.setRequestHeader('name', 'qianlongo')
+xhr.send(null)
+
+```
+服务端在接收到这种自定义的头部信息之后，可以执行响应的后续操作，建议不要修改浏览器默认的头部相关字段。
+
+我们也可以调用`xhr.getResponseHeader()`，并传入一个头部字段的名称即可获取响应的头部信息，而调用`xhr.getAllResponseHeaders()`则可以获取包含所有头部信息的长字符串。
+
+以下是示例。
+
+``` javascript
+var myHeader = xhr.getResponseHeader('myHeader')
+var allHeaders = xhr.getAllResponseHeaders()
+```
+
+当然了客户端在发起请求的时候可以自定义请求头部信息，服务端同样可以返回客户端一些自定义的头部信息。
+
