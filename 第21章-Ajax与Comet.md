@@ -236,5 +236,9 @@ function addURLParam (url, name, value) {
 1. 将请求头的`Content-type`设置为`application/x-www-form-urlencoded`,也就是表单提交的类型
 2. 其次以合适的格式创建一个字符串，post格式与查询字符串的格式相同
 
+**与GET请求相比POST请求消耗的资源会更多一些，从性能角度看，发送相同的数据，GET请求的速度可以达到POST请求的2倍**
+
+**因为Ajax涉及到模仿表单提交等知识，现在暂停到这里，先回顾完第14章－表单脚本再回到这里**
+
 
 
