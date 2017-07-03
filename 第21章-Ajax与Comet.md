@@ -327,3 +327,18 @@ xhr.send(null)
 ```
 
 **注意该方法必须要在send方法之前调用，才能保证重写响应的MIME类型**
+
+## 21.3 进度事件
+
+> Progress Events定义了客户端与服务器通信有关的事件。
+
+1. loadStart ： 在接收到响应数据的第一个自己触发
+2. progress ：在接收响应期间持续不断的触发
+3. error ： 在请求发生错误时触发
+4. abort ： 在因为调用abort()方法而终止连接时触发
+5. load ： 在接收到完整的数据时触发
+6. loadend ： 在通信完成或者触发error、abort或load事件后触发
+
+现在着重看`load`和`progress`事件
+
+## 
