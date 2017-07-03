@@ -359,3 +359,13 @@ xhr.onload = function () {
 
 ```
 
+## 21.3.2 progress事件
+
+> 该事件会在浏览器接收数据期间周期性的触发。而onprogress的事件处理程序会接收到一个event对象，其target属性是XHR对象，但是包含三个而外的属性 
+
+1. `lengthComputable` (表示进度信息是否可用)
+2. `position` (表示已经接收的字节数)
+3. `totalSize` (表示根据Content-Length响应头部确定的预期的字节数)
+
+**这些属性兼容性问题比较大，谨慎使用**
+
