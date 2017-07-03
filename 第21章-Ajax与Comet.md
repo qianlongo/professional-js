@@ -239,9 +239,71 @@ function addURLParam (url, name, value) {
 1. 将请求头的`Content-type`设置为`application/x-www-form-urlencoded`,也就是表单提交的类型
 2. 其次以合适的格式创建一个字符串，post格式与查询字符串的格式相同
 
+**简单示例**
+
+``` javascript
+function submitData () {
+  var xhr = createXHR()
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
+        alert(xhr.responseText)
+      } else {
+        alert('err')
+      }
+    }
+  }
+  xhr.open('post', 'example.php', true)
+  xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded') // 着重点
+  var form = document.getElementById('user-info')
+  xhr.send(serialize(form)) // 着重点
+}
+
+```
+
 **与GET请求相比POST请求消耗的资源会更多一些，从性能角度看，发送相同的数据，GET请求的速度可以达到POST请求的2倍**
 
 **因为Ajax涉及到模仿表单提交等知识，现在暂停到这里，先回顾完第14章－表单脚本再回到这里**
 
+**对于了解本章知识点需要的表单知识主要是以GET和POST两种方式提交时的请求头部`Content-type`和`formData`以及提交给后端的是经过`encodeURIComponent()`处理的即可**
 
+## 21.2 XMLHttpRequest 2级
+
+## 21.2.1 FormData
+
+> 现代Web应用中频繁使用的一项功能就是表单序列化，`XMLHttpRequest 2`为此定义了`FormData`类型，FormData为序列化表单和创建与表单格式相同的数据(用于通过XHR传输)提供了便利。
+
+使用示例
+
+``` javascript
+var data = new FormData()
+
+data.append('name', 'qianlongo')
+
+```
+
+其接收两个参数，数据的健和值
+
+当然也可以直接像`FormData`传入表单
+
+示例
+ 
+``` javascript
+var xhr = createXHR()
+xhr.onreadystatechange = function () {
+  if (xhr.readyState === 4) {
+    if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
+      alert(xhr.responseText)
+    } else {
+      alert('err')
+    }
+  }
+}
+xhr.open('post', 'example.php', true)
+var form = document.getElementById('user-info')
+xhr.send(new FormData(form)) // 着重点
+
+```
+
+**对比上面一个例子我们可以发现，使用FormData来传输数据的时候，可以省去设置头部`Content-type`，也不必自己序列化表单，可谓方便多了**
 
