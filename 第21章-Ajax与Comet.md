@@ -369,3 +369,57 @@ xhr.onload = function () {
 
 **这些属性兼容性问题比较大，谨慎使用**
 
+## 21.4 跨域资源共享
+
+## 21.4.1 IE对CORS的实现
+
+## 21.4.2 其他浏览器对CORS的实现
+
+## 21.4.3 Preflighted Request
+
+## 21.4.4 带凭据的请求
+
+## 21.4.5 跨浏览器的CORS
+
+**以上章节都是讲解CORS形式跨域的解决方案，本书介绍比较少，可以看阮一峰的文章 [跨域资源共享 CORS 详解](http://www.ruanyifeng.com/blog/2016/04/cors.html)**
+
+## 21.5 其他跨域技术
+
+> 在CORS技术出现之前，解决跨域问题，一般是利用DOM中能够执行跨域请求的功能，在不依赖XHR对象的情况下也能发送某种请求。
+
+## 21.5.1 图像ping
+
+> 网页中无论从哪个网页中加载图片都不用担心跨域的问题，通过动态的创建图像，使用它们的onload和onerror事件处理程序来确定是否接收到了响应。
+
+**图像ping是与服务器进行简单、单向的跨域通信的一种方式，请求的数据通过查询字符串形式发送给服务器，而响应可以是任意内容，但通常是像素图或204响应，通过图像ping浏览器得到不任何数据，但可以通过onload和onerror事件知晓请求是何时接收到的。**
+
+``` javascript
+var img = new Image()
+img.onload = img.onerror = function () {
+  alert('DONE')
+}
+img.src = 'www.baidu.com'
+
+```
+
+## 21.5.2 JSONP
+
+> JSONP(JSON with padding),由两部分组成：回调函数和数据，回调函数是当响应到来的时应该在页面中调用的函数，回调函数的名字一般是在请求中指定的。而数据就是传入回调函数中的json数据。
+
+**通过动态地创建`<script>`标签，将其src属性指向一个跨域的url，其实这里的script标签和img标签类似，都有能力不受限制的跨域加载资源，因为JSONP是有效的JavaScript代码，所以在请求完成之后，即在JSONP响应加载到页面以后，就会立即执行。**
+
+可以看一篇自己以前写过的文章[原来你是这样的jsonp(原理与具体实现细节)](https://github.com/qianlongo/zepto-analysis/issues/4)
+
+**示例**
+
+``` javascript
+function handleResponse (response) {
+  console.log(response)
+}
+
+var script = document.createElement('script')
+script.src = 'http://example.php?callback=handleReponse'
+document.body.appendChild(script)
+
+```
+
