@@ -9,7 +9,7 @@
 <body>
   <script>
     function testXString () {
-      alert(arguments.callee.activeXString)
+      alert(typeof arguments.callee.activeXString != 'string')
     }
     testXString()
   </script>
