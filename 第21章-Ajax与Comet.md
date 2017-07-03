@@ -1,5 +1,7 @@
 ## Ajax与Comet
 
+[也可以查看阮一峰AJAX学习](http://javascript.ruanyifeng.com/bom/ajax.html)
+
 > Asynchronous Javascript and XML(`Ajax`),这一技术能够能够向服务器请求额外的数据而不用刷新页面，能够带来更好的用户体验，熟练地使用XHR对象是Web开发人员必须掌握的一项技能。
 
 ## 阅读主要内容和目标
@@ -307,3 +309,21 @@ xhr.send(new FormData(form)) // 着重点
 
 **对比上面一个例子我们可以发现，使用FormData来传输数据的时候，可以省去设置头部`Content-type`，也不必自己序列化表单，可谓方便多了**
 
+## 21.2.2 超时设置
+
+> 超时设置可以参考zepto ajax模块中的处理 [zepto-ajax模块](https://github.com/qianlongo/zepto-analysis/blob/master/src/ajax.js)
+
+## overrideMimeType()方法
+
+> 该方法用于重写XHR响应的MIME类型，因为返回响应的类型决定了XHR对象如何处理它，所以提供一种能够重写服务端返回的MIME类型是很有用的。[MIME MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types)
+
+举个例子：服务器返回的MIME类型是text/plain,但是数据中实际包含的是XML，那么XHR根据MIME的类型，即使数据是XML。responseXML属性中仍然是null，通过调用overrideMimeType方法，可以保证把响应当作XML而非穿文本来处理。
+
+``` javascript
+var xhr = createXHR()
+xhr.open('get', 'text.php', true)
+xhr.overrideMimeType('text/xml')
+xhr.send(null)
+```
+
+**注意该方法必须要在send方法之前调用，才能保证重写响应的MIME类型**
