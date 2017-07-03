@@ -54,6 +54,7 @@ function createXHR () {
   if (typeof XMLHttpRequest != 'undefined') {
     return new XMLHttpRequest()
   } else if (typeof arguments.callee.activeXString != 'string') {
+    console.log('进了arguments.callee.activeXString')
     var versions = [
       'MSXML2.XMLHttp',
       'MSXML2.XMLhttp.3.0',
@@ -62,6 +63,7 @@ function createXHR () {
     for (var i = 0, len = versions.length; i < len; i++) {
       try {
         // 为什么这里不将实例返回也可以得到XHR对象
+        console.log(versions[i])
         new ActiveXObject(versions[i])
         arguments.callee.activeXString = versions[i]
         break
@@ -69,10 +71,11 @@ function createXHR () {
         // 跳过
       }
     }
+    console.log('ActiveXObject')
+    return new ActiveXObject(arguments.callee.activeXString)
+  } else {
+    throw new Error('No XHR object available')
   }
-  return new ActiveXObject(arguments.callee.activeXString)
-} else {
-  throw new Error('No XHR object available')
 }
 
 ```
