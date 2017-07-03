@@ -341,4 +341,21 @@ xhr.send(null)
 
 现在着重看`load`和`progress`事件
 
-## 
+## 21.3.1 load事件
+
+> load事件的初衷在于简化异步交互的模型，用以替代readystatechange事件，响应接收完毕将会触发load事件，因此也就没有必要检查readyState属性。并且load事件处理程序会受到一个event对象，target属性就是指向xhr对象的实例，也就可以访问到其所有的属性和方法。
+
+遗憾的是并不是所有的浏览器都实现了适当的事件对象，所以兼容写法还是如下
+
+``` javascript
+var xhr = createXHR()
+xhr.onload = function () {
+  if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
+    alert(xhr.responseText)
+  } else {
+    alert('Request was unsuccessful')
+  }
+}
+
+```
+
