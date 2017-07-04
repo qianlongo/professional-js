@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>在iframe中判断是否为数组父窗口</title>
+</head>
+<body>
+  <iframe src="./iframe子窗口.html" frameborder="0" id="child-iframe"></iframe>
+  <script>
+    var parent = ['parent']
+    var childWin = document.getElementById('child-iframe').contentWindow
+    // console.log(childWin)
+    console.log(`child, ${childWin.childArr}`)
+  </script>
+</body>
+</html>
