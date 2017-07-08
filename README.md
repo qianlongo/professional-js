@@ -6,13 +6,15 @@
 
 ## 重温记录
 
+[第4章-变量、作用域和内存问题](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC4%E7%AB%A0-%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98.md)
+
 [第5章-引用类型](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC5%E7%AB%A0-%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B.md)
 
-[第六章-面向对象的程序设计](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC%E5%85%AD%E7%AB%A0-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1.md)
+[第6章-面向对象的程序设计](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC6%E7%AB%A0-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1.md)
 
-[第七章-函数表达式](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F.md)
+[第7章-函数表达式](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC7%E7%AB%A0-%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F.md)
 
-[第十章-DOM](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC%E5%8D%81%E7%AB%A0-DOM.md)
+[第10-DOM](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC10-DOM.md)
 
 [第14章-表单脚本](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC14%E7%AB%A0-%E8%A1%A8%E5%8D%95%E8%84%9A%E6%9C%AC.md)
 
