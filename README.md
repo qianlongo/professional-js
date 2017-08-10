@@ -20,3 +20,8 @@
 
 [第21章-Ajax与Comet](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC21%E7%AB%A0-Ajax%E4%B8%8EComet.md)
 
+[第22章-高级技巧](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC22%E7%AB%A0-%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7.md)
+
+
+[第23章-离线应用与客户端存储](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC23%E7%AB%A0-%E7%A6%BB%E7%BA%BF%E5%BA%94%E7%94%A8%E4%B8%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AD%98%E5%82%A8.md)
+
