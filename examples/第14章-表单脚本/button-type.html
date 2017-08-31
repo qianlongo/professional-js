@@ -10,14 +10,30 @@
 
 <body>
   <form action="https://github.com/">
-    <input type="text" value="用户名">
-    <input type="password" value="pwd">
+    <input type="text" value="用户名" name="username">
+    <input type="password" value="pwd" name="password">
     <!-- 有以下三种按钮类型就可以提交表单 -->
-    <!-- <input type="submit" value="提交表单"> -->
+    <input type="submit" value="提交表单"> 
     <!-- <button type="submit">提交表单</button> -->
     <!-- <input type="image" src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white_fe6da1ec.png"> -->
   </form>
+  <script>
+    let $form = document.forms[0]
+    let fields = [].slice.call($form.elements)
+    let checkForm = () => {
+      return (fields.filter((ele) => {
+        return ['text', 'password'].includes(ele.type)
+      }).every((ele) => {
+        return ele.value.length > 6
+      }))
+    }
 
+    $form.addEventListener('submit', function (event) {
+      if (!checkForm()) {
+        event.preventDefault()
+      }
+    }, false)
+  </script>
 </body>
 
 </html>
