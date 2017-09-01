@@ -14,6 +14,7 @@
     <input type="password" value="pwd" name="password">
     <!-- 有以下三种按钮类型就可以提交表单 -->
     <input type="submit" value="提交表单"> 
+    <input type="reset" value="重置表单">
     <!-- <button type="submit">提交表单</button> -->
     <!-- <input type="image" src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white_fe6da1ec.png"> -->
   </form>
@@ -28,11 +29,17 @@
       }))
     }
 
-    $form.addEventListener('submit', function (event) {
-      if (!checkForm()) {
-        event.preventDefault()
-      }
-    }, false)
+    ['submit', 'reset'].forEach((v) => {
+      $form.addEventListener(v, function (event) {
+        if (checkForm()) {
+          // xxx 通过表单验证
+        } else {
+          // xxx 没通过
+          event.preventDefault()
+        }
+      }, false)
+    })
+    
   </script>
 </body>
 
