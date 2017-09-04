@@ -19,7 +19,7 @@
     let $area = $form.elements['textarea']
 
     $area.addEventListener('select', (e) => {
-      console.log(e.target.value, '====')
+      console.log($area.value.substring($area.selectionStart, $area.selectionEnd))
     }, false)
     $area.value = 111 // js改变其value，不会体现在<textarea></textarea>之间
     $area.select()
