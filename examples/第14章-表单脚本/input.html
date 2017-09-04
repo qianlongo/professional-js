@@ -18,7 +18,11 @@
     let $form = document.forms[0]
     let $area = $form.elements['textarea']
 
+    $area.addEventListener('select', (e) => {
+      console.log(e.target.value, '====')
+    }, false)
     $area.value = 111 // js改变其value，不会体现在<textarea></textarea>之间
+    $area.select()
   </script>
 </body>
 
