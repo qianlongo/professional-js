@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>input</title>
+</head>
+
+<body>
+  <form action="">
+    <input type="text" size="200" maxlength="10">
+    <textarea name="textarea" id="" cols="30" rows="10">initial value</textarea>
+  </form>
+  
+  <script>
+    let $form = document.forms[0]
+    let $area = $form.elements['textarea']
+
+    $area.value = 111 // js改变其value，不会体现在<textarea></textarea>之间
+  </script>
+</body>
+
+</html>
