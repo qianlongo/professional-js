@@ -13,10 +13,17 @@
     <input type="text" size="200" maxlength="10">
     <textarea name="textarea" id="" cols="30" rows="10">initial value</textarea>
   </form>
+
+  <input type="text" class="test-keypress">
   
   <script>
     let $form = document.forms[0]
     let $area = $form.elements['textarea']
+    let $keyPress = document.querySelector('.test-keypress')
+
+    $keyPress.addEventListener('keypress', (e) => {
+      e.preventDefault()
+    }, false)
 
     $area.addEventListener('select', (e) => {
       console.log($area.value.substring($area.selectionStart, $area.selectionEnd))
