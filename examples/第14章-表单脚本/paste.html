@@ -14,10 +14,23 @@
   </div>
   <script>
     let $pasteInput = document.querySelector('.paste-input')
+    let getClipboardData = (e) => {
+      let clipboardData = (e || event).clipboardData
+
+      return clipboardData.getData('text')
+    }
+    let setClipboardData = (e, val) => {
+      let params = e.clipboardData ? 'text/plain' : 'text'
+      let clipboardData = (e || event).clipboardData
+
+      clipboardData.setData(params, val)
+    }
 
     $pasteInput.addEventListener('paste', (e) => {
-      console.log(e.clipboardData.getData('text'))
+      let data = getClipboardData(e)
+      console.log(data)
     }, false)
+    
   </script>
 </body>
 
