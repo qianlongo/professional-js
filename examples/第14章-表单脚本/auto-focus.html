@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>自动切换焦点</title>
+</head>
+
+<body>
+	<form action="" name="form1">
+		<input type="text" name="tel1" maxlength="3">
+		<input type="text" name="tel2" maxlength="4">
+		<input type="text" name="tel3" maxlength="5">
+	</form>
+	<script>
+		let $form = document.forms['form1']
+
+		let getNextInput = (e) => {
+			let target = (e || event).target
+			let maxLength = target.maxLength
+			let val = target.value
+			let name = target.name
+			let len = name.length
+			let nextInputIndex = Number(name[name.length - 1]) + 1
+			let prefix
+
+			if (val.length === maxLength) {
+				prefix = name.slice(0, len - 1)
+				name = `${prefix}${nextInputIndex}`
+				return $form.elements[name]
+			}
+		}
+
+
+		$form.addEventListener('keyup', (e) => {
+			let $nextInput = getNextInput(e)
+			
+			if ($nextInput) {
+				$nextInput.focus()
+			}
+		}, false)
+	</script>
+</body>
+
+</html>
