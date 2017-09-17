@@ -93,4 +93,27 @@ if (ctx) {
 
 ```
 
+以上代码先将fillStyle设置为红色，然后从（10， 10）处开始绘制矩形，矩形的宽度和高度均为50像素，然后通过rgba格式将fillStyle设置为半透明的颜色，在第一个矩形上面绘制的第二矩形，结果就是可以透过蓝色的矩形看到红色的矩形。
+
+**strokeRect**
+
+strokeRect方法在画布上绘制的矩形会使用指定的颜色描边，描边的颜色通过strokeStyle指定。
+
+``` javascript
+let $drawing = document.getElementById('drawing')
+let ctx = $drawing.getContext && $drawing.getContext()
+
+if (ctx) {
+	// 绘制红色的矩形
+	ctx.fillStyle = '#ff0000'
+	ctx.strokeRect(10, 10, 50, 50)
+	// 绘制半透明的矩形
+	ctx.fillStyle = 'rgba(0, 0, 255, 0.5)'
+	ctx.strokeRect(30, 30, 50, 50)
+}
+
+```
+
+以上代码绘制了两个重叠的矩形，不过这两个矩形都只有框线，内部没有填充颜色。
+
 

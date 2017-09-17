@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>canvas基本使用</title>
+	<style>
+		#drawing{
+			border: solid 1px green;
+		}
+	</style>
+</head>
+
+<body>
+	<canvas id="drawing" width="200" height="200"></canvas>
+	<script>
+		let $drawing = document.getElementById('drawing')
+		let ctx = $drawing.getContext && $drawing.getContext('2d')
+
+		if (ctx) {
+			// 绘制红色的矩形
+			ctx.fillStyle = '#ff0000'
+			ctx.strokeRect(10, 10, 50, 50)
+			// 绘制半透明的矩形
+			ctx.fillStyle = 'rgba(0, 0, 255, 0.5)'
+			ctx.strokeRect(30, 30, 50, 50)
+		}
+	</script>
+</body>
+
+</html>
