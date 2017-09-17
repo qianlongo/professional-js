@@ -62,8 +62,33 @@ if (drawing.getContext) {
 let $drawing = document.getElementById('drawing')
 let ctx = $drawing.getContext && $drawing.getContext()
 
-if ($drawing) {
-	let ctx = drawing
+if (ctx) {
+	ctx.strokeStyle = 'red'
+	ctx.fillStyle = '#0000ff'
+}
+
+```
+
+所有涉及描边和填充的操作都将使用这两个样式，直至重新设置这两个值，这两个属性的值也可以是渐变对象和模式对象。
+
+## 15.2.2 绘制矩形
+
+> 矩形是唯一一种可以直接到2D的上下文中绘制的形状，与矩形有关的方法包括`fillRect`,`strokeRect`,`clearRect`这三个方法都可以接受4个参数，矩形的x坐标，矩形的y坐标，矩形的宽度和句型的高度。这些参数的单位都是像素。
+
+fillRect方法在画布上绘制的矩形会填充指定的颜色，填充的颜色通过fillStyle属性指定。比如：
+
+```javascript
+
+let $drawing = document.getElementById('drawing')
+let ctx = $drawing.getContext && $drawing.getContext()
+
+if (ctx) {
+	// 绘制红色的矩形
+	ctx.fillStyle = '#ff0000'
+	ctx.fillRect(10, 10, 50, 50)
+	// 绘制半透明的矩形
+	ctx.fillStyle = 'rgba(0, 0, 255, 0.5)'
+	ctx.fillRect(30, 30, 50, 50)
 }
 
 ```
