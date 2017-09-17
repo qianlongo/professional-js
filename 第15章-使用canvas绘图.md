@@ -45,4 +45,27 @@ if (drawing.getContext) {
 **注意： 如果绘制到画布上的图像源自不同的域，toDataURL方法会抛出错误**
 
 
+## 15.2 2D上下文
+
+> 使用2D绘图上下文提供的方法，可以绘制简单的2D图形，比如矩形，弧线和路径。2D上下文的坐标开始于canvas元素的左上角，原点是(0, 0)，所有的坐标值都基于这个原点计算，x值越大表示跃靠右，y值越大表示越靠下，默认情况下，width和height表示水平和垂直方向上可用的像素数目。
+
+15.2.1 填充和描边
+
+> 2D上下文的两种基本绘图操作是填充和描边，填充即使用指定的样式（颜色，渐变，或图像）填充图形，描边就是只在图形的边缘画线。大多数2D上下文操作都会细分为填充和描边两个操作，而操作的结果取决于两个属性，fillStyle和strokeStyle
+
+**需要注意的是这两个属性的值都可以是字符串，渐变对象或模式对象，而且默认的值都是“#000000”，如果为他们指定表示颜色的字符串，可以使用css中指定颜色值的任何格式，包括颜色名，十六进制码，rgb，rgba，hsl和hsla**
+
+
+下面是一个简单的例子
+
+``` javascript
+let $drawing = document.getElementById('drawing')
+let ctx = $drawing.getContext && $drawing.getContext()
+
+if ($drawing) {
+	let ctx = drawing
+}
+
+```
+
 

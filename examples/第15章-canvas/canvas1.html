@@ -17,7 +17,7 @@
 	<canvas id="drawing" width="200" height="200"></canvas>
 	<script>
 		let $drawing = document.getElementById('drawing')
-		let ctx = $drawing.getContext('2d')
+		let ctx = $drawing.getContext('2d') && $drawing.getContext()
 
 		if (ctx) {
 			ctx.fillRect(0, 0, 100, 100)
