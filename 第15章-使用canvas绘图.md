@@ -138,4 +138,39 @@ if (ctx) {
 
 接下来我们要绘制一个不带数字的时钟表盘。
 
+``` javascript
+let $drawing = document.getElementById('drawing')
+let ctx = $drawing.getContext && $drawing.getContext('2d')
+
+	if (ctx) {
+		ctx.beginPath()
+		ctx.arc(100, 100, 100, 0, 2 * Math.PI, false)
+		ctx.moveTo(190, 100) // 防止画出多余的线
+		ctx.arc(100, 100, 90, 0, 2 * Math.PI, false)
+		ctx.moveTo(100, 100)
+		ctx.lineTo(100, 20)
+		ctx.moveTo(100, 100)
+		ctx.lineTo(40, 100)
+		ctx.stroke()
+	}
+
+```
+
+## 15.2.4 绘制文本
+
+> 2d绘图上下文也提供了绘制文本的方法，绘制文本主要有两个方法：fillText()和strokeText()。这两个方法都可以接受4个参数，要绘制的文本字符串，x坐标，y坐标和可选的最大像素宽度。而且这两个方法都以下列3个属性为基础。
+
+1. font: 表示文本样式，大小，以及字体，用css中指定的字体格式来指定例如： "10px Arial"
+
+2. textAlign: 表示文本对齐方式，可能的值有“start”， “end”，“left”，“right”， “center”，建议使用“start”， “end”，不适用“left”，“right”，因为前者的意思更稳妥，能同时适合从左到右，和从右到左的语言。
+
+3. textBaseline： 表示文本的基线，可能的值有“top”， “hanging”， “middle”， “alphabetic”， “ideographic”，“bottom”
+
+这几个属性都有默认值，因此没有必要每次使用它们都重新设置一遍值，fillText()方法使用fillStyle属性绘制文本，strokeText使用strokeStyle属性为文本描边，相对来说，还是使用fillText的时候更多，因为该方法模仿了在网页中正常显示文本。
+
+接下来我们接着上面的例子绘制数字。
+
+
+
+
 

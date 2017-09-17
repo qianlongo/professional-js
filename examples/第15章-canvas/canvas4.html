@@ -25,10 +25,18 @@
 			ctx.moveTo(190, 100) // 防止画出多余的线
 			ctx.arc(100, 100, 90, 0, 2 * Math.PI, false)
 			ctx.moveTo(100, 100)
-			ctx.lineTo(100, 20)
+			ctx.lineTo(100, 30)
 			ctx.moveTo(100, 100)
 			ctx.lineTo(40, 100)
 			ctx.stroke()
+			ctx.font = 'bold 14px Arial'
+			ctx.textAlign = 'center'
+			ctx.textBaseline = 'middle'
+			ctx.fillText('12', 100, 20)
+			ctx.textAlign = 'start'
+			ctx.fillText('12', 100, 40)
+			ctx.textAlign = 'end'
+			ctx.fillText('12', 100, 60)
 		}
 	</script>
 </body>
