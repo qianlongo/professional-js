@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>canvas基本使用</title>
+	<style>
+		#drawing{
+			border: solid 1px green;
+		}
+	</style>
+</head>
+
+<body>
+	<canvas id="drawing" width="200" height="200"></canvas>
+	<script>
+		let $drawing = document.getElementById('drawing')
+		let ctx = $drawing.getContext('2d')
+
+		if (ctx) {
+			ctx.fillRect(0, 0, 100, 100)
+			let imgURL = drawing.toDataURL('image/png')
+			let image = document.createElement('img')
+			image.src = imgURL
+			document.body.appendChild(image)
+		}
+	</script>
+</body>
+
+</html>

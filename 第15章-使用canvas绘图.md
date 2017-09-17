@@ -28,5 +28,21 @@ if (drawing.getContext) {
 
 如上代码，在使用canvas元素之前需要先检测getContext方法是否存在，在有些浏览器中会HTML规范之外的元素创建默认的HTML元素对象，在这种情况中，虽然保存着一个有效的元素引用，也检测不到getContext方法。
 
+使用toDataURL方法，可以导出在canvas元素上绘制的图像，这个方法接收一个参数，即图像的MIME类型格式，而且适合用于创建图像的任何上下文，比如，要取得画布中的一幅PNG格式的图像，可以使用以下代码。
+
+``` javascript
+let drawing = document.getElementById('drawing')
+
+if (drawing.getContext) {
+	let imgURL = drawing.toDataURL('image/png')
+	let image = document.createElement('img')
+	image.src = imgURL
+	document.body.appendChild(image)
+}
+
+```
+
+**注意： 如果绘制到画布上的图像源自不同的域，toDataURL方法会抛出错误**
+
 
 
