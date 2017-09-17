@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>canvas基本使用</title>
+	<style>
+		#drawing{
+			border: solid 1px green;
+		}
+	</style>
+</head>
+
+<body>
+	<canvas id="drawing" width="400" height="400"></canvas>
+	<script>
+		let $drawing = document.getElementById('drawing')
+		let ctx = $drawing.getContext && $drawing.getContext('2d')
+
+		if (ctx) {
+			ctx.beginPath()
+			ctx.arc(100, 100, 100, 0, 2 * Math.PI, false)
+			ctx.moveTo(190, 100) // 防止画出多余的线
+			ctx.arc(100, 100, 90, 0, 2 * Math.PI, false)
+			ctx.moveTo(100, 100)
+			ctx.lineTo(100, 20)
+			ctx.moveTo(100, 100)
+			ctx.lineTo(40, 100)
+			ctx.stroke()
+		}
+	</script>
+</body>
+
+</html>
