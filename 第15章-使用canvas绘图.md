@@ -116,4 +116,22 @@ if (ctx) {
 
 以上代码绘制了两个重叠的矩形，不过这两个矩形都只有框线，内部没有填充颜色。
 
+## 15.2.3 绘制路径
+
+> 2D绘制上下文支持很多在画布上绘制路径的方法，通过路径可以创造出复杂的形状和线条。要绘制路径，首先必须调用`beginPath()`方法，表示要开始绘制新的路径，然后再通过调用以下方法来实际地绘制路径。
+
+1. arc(x, y, radius, startAngle, endAngle, counterclockwise); 以(x, y)为圆心绘制一条弧线，弧线的半径为radius，起始角度和结束角度（用弧度表示）分别为startAngle何endAngle，最后一个参数表示是否按照逆时针方向计算，值为false表示按顺时针计算。
+
+2. arcTo(x1, y1, x2, y2, radius)：从上一点开始绘制一条弧线，到(x2, y2)并且以给定的半径radius穿过(x1, y1)
+
+3. bezierCurveTo(c1x, c1y, c2x, c2y, x, y)： 从上一点开始绘制一条曲线，到(x, y)位置，并且以（c1x, c1y）和（c2x, c2y）为控制点。
+
+4. lineTo(x, y): 从上一点开始绘制一条直线，直到(x, y)为止。
+
+5. moveTo(x, y): 将绘图游标移动到(x, y)，不画线。
+
+6. quadraticCurveTo(cx, cy, x, y): 从上一点开始绘制一条二次曲线，到(x, y)为止。并且以(cx, cy)为控制点。
+
+7. rect(c, y, width, height), 从点(x, y)开始绘制一个矩形，宽度和高度由width和height指定，这个方法绘制的是矩形路径，而不是strokeRect和fillRect所绘制的**独立矩形形状**。
+
 
