@@ -170,6 +170,21 @@ let ctx = $drawing.getContext && $drawing.getContext('2d')
 
 接下来我们接着上面的例子绘制数字。
 
+``` javascript
+
+	ctx.font = 'bold 14px Arial'
+	ctx.textAlign = 'center'
+	ctx.textBaseline = 'middle'
+	ctx.fillText('12', 100, 20)
+	ctx.textAlign = 'start'
+	ctx.fillText('12', 100, 40)
+	ctx.textAlign = 'end'
+	ctx.fillText('12', 100, 60)
+
+```
+注意：将textAlign设置为“center”，把textBaseline设置为“middle”，所以坐标为(100, 20)表示的是文本水平和垂直重点的坐标，如果将textAlign设置为“start”，则x坐标表示的是文本左端的位置（从左到右的语言），设置为“end”
+
+
 
 
 
