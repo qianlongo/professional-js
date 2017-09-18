@@ -191,12 +191,27 @@ let ctx = $drawing.getContext && $drawing.getContext('2d')
 
 ``` javascript
 let fontSize = 100
+let fontStr = 'Hello world'
 
+if (ctx) {
+	ctx.textAlign = 'start'
+	ctx.textBaseline = 'middle'
+	ctx.font = `${fontSize}px Arial`
 
+	while (ctx.measureText(fontStr).width > 60) {
+		fontSize--
+		ctx.font = `${fontSize}px Arial`
+	}
 
+	ctx.fillText(fontStr, 10, 10)
+	ctx.fillText(`Font size is ${fontSize}px`, 10, 50)
 
+}
 
 ```
+
+## 15.2.5 变换
+
 
 
 

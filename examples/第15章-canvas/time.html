@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+	<canvas id="canvas" width="200" height="200"></canvas>
+	<script>
+		let $canvas = document.querySelector('#canvas')
+		let ctx = $canvas.getContext && $canvas.getContext('2d')
+		let w = $canvas.width
+		let h = $canvas.height
+		let middleX = w / 2
+		let middleY = h / 2
+		let r = middleX
+		let number = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2] // 从横坐标开始画
+		
+		let app = {
+			init () {
+				this.drawBg()
+			},
+			drawBg () {
+				ctx.translate(middleX, middleY)
+				ctx.beginPath()
+				// 外圆
+				ctx.arc(0, 0, r, 0, 2 * Math.PI)
+				ctx.stroke()
+				// 数字 1 ~ 12, 水平垂直居中
+				ctx.font = '18px Arial'
+				ctx.textAlign = 'center'
+				ctx.textBaseline = 'middle'
+
+				number.forEach((num, index) => {
+					let reg = 2 * Math.PI / 12 * index // 360度分成12份
+					let x = Math.cos(reg) * (r - 18)
+					let y = Math.sin(reg) * (r - 18)
+
+					ctx.fillText(num, x, y)
+				})				
+			}
+		}
+
+		app.init()
+	</script>
+</body>
+
+</html>
