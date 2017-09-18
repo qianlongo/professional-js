@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>canvas基本使用</title>
+	<style>
+		#drawing{
+			border: solid 1px green;
+		}
+	</style>
+</head>
+
+<body>
+	<canvas id="drawing" width="100" height="100"></canvas>
+	<script>
+		let $drawing = document.getElementById('drawing')
+		let ctx = $drawing.getContext && $drawing.getContext('2d')
+		let fontSize = 100
+		let fontStr = 'Hello world'
+
+		if (ctx) {
+			ctx.textAlign = 'start'
+			ctx.textBaseline = 'middle'
+			ctx.font = `${fontSize}px Arial`
+
+			while (ctx.measureText(fontStr).width > 60) {
+				fontSize--
+				ctx.font = `${fontSize}px Arial`
+			}
+
+			ctx.fillText(fontStr, 10, 10)
+			ctx.fillText(`Font size is ${fontSize}px`, 10, 50)
+
+		}
+	</script>
+</body>
+
+</html>

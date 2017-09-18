@@ -182,7 +182,21 @@ let ctx = $drawing.getContext && $drawing.getContext('2d')
 	ctx.fillText('12', 100, 60)
 
 ```
-注意：将textAlign设置为“center”，把textBaseline设置为“middle”，所以坐标为(100, 20)表示的是文本水平和垂直重点的坐标，如果将textAlign设置为“start”，则x坐标表示的是文本左端的位置（从左到右的语言），设置为“end”
+注意：将textAlign设置为“center”，把textBaseline设置为“middle”，所以坐标为(100, 20)表示的是文本水平和垂直重点的坐标，如果将textAlign设置为“start”，则x坐标表示的是文本左端的位置（从左到右的语言），设置为“end”，则x坐标表示的是文本右端的位置.
+
+**measureText**
+
+当需要将文本控制在某一区域中的时候，2D上下文提供了辅助确定文本大小的方法measureText(),这个方法接收一个参数，即要回执的文本，返回一个textMetrics对象，返回的对象只有一个width属性，并且该方法是利用font，textAlign和textBaseline的当前值计算指定的文本的大小。比如，假设你想在一个140像素宽的矩形区域中绘制文本，Hello world！下面的代码从100像素的字体大小开始递减，最终会找到合适的字体大小。
+
+
+``` javascript
+let fontSize = 100
+
+
+
+
+
+```
 
 
 
