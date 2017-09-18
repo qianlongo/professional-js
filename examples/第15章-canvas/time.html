@@ -22,9 +22,12 @@
 		
 		let app = {
 			init () {
-				this.drawBg()
+				setInterval(() => {
+					this.draw()
+				}, 1000)
 			},
 			drawBg () {
+				ctx.save()
 				ctx.translate(middleX, middleY)
 				ctx.beginPath()
 				// 外圆
@@ -41,7 +44,72 @@
 					let y = Math.sin(reg) * (r - 18)
 
 					ctx.fillText(num, x, y)
-				})				
+				})
+
+				// 画出60个格子
+				let dotNum = 60
+
+				while (dotNum--) {
+					let reg = 2 * Math.PI / 60 * dotNum
+					let x = Math.cos(reg) * (r - 5)
+					let y = Math.sin(reg) * (r - 5)
+
+					ctx.beginPath()
+					ctx.fillStyle = dotNum % 5 ? '#ccc' : '#000'
+					ctx.arc(x, y, 2, 0, 2 * Math.PI, false)
+					ctx.fill()
+				}			
+			},
+			drawHour (hour, minute) {
+				ctx.save()
+				ctx.beginPath()
+				rad = 2 * Math.PI / 12 * hour
+				mrad = 2 * Math.PI / 12 / 60 * minute
+				ctx.rotate(rad + mrad)
+				ctx.lineWidth = 6
+				ctx.lineCap = 'round'
+				ctx.moveTo(0, 10)
+				ctx.lineTo(0, -r / 2)
+				ctx.stroke()
+				ctx.restore()
+		
+			},
+			drawMinute (minute) {
+				ctx.save()
+				ctx.beginPath()
+				let rad = 2 * Math.PI / 60 * minute
+				ctx.rotate(rad)
+				ctx.lineWidth = 3
+				ctx.lineCap = 'round'
+				ctx.moveTo(0, 10)
+				ctx.lineTo(0, -r + 30)
+				ctx.stroke()
+				ctx.restore()
+			},
+			drawSecond (second) {
+				ctx.save()
+				ctx.beginPath()
+				ctx.fillStyle = '#c14443'
+				let rad = 2 * Math.PI / 60 * second
+				ctx.rotate(rad)
+				ctx.moveTo(-2, 20)
+				ctx.lineTo(2, 20)
+				ctx.lineTo(1, -r + 18)
+				ctx.lineTo(-1, -r + 18)
+				ctx.fill()
+				ctx.restore()
+			},
+			draw () {
+				ctx.clearRect(0, 0, w, h)
+				let now = new Date()
+				let hour = now.getHours()
+				let minutes = now.getMinutes()
+				let seconds = now.getSeconds()
+				this.drawBg()
+				this.drawHour(hour, minutes)
+				this.drawMinute(minutes)
+				this.drawSecond(seconds)
+				ctx.restore()
 			}
 		}
 
