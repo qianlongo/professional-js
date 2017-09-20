@@ -18,6 +18,10 @@
 
 [第14章-表单脚本](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC14%E7%AB%A0-%E8%A1%A8%E5%8D%95%E8%84%9A%E6%9C%AC.md)
 
+[第15章-使用canvas绘图](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC15%E7%AB%A0-%E4%BD%BF%E7%94%A8canvas%E7%BB%98%E5%9B%BE.md)
+
+[第17章-错误处理与调试](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC17%E7%AB%A0-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E4%B8%8E%E8%B0%83%E8%AF%95.md)
+
 [第21章-Ajax与Comet](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC21%E7%AB%A0-Ajax%E4%B8%8EComet.md)
 
 [第22章-高级技巧](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC22%E7%AB%A0-%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7.md)
