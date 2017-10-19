@@ -14,6 +14,8 @@
 
 [第7章-函数表达式](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC7%E7%AB%A0-%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F.md)
 
+[第9章-客户端检测](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC9%E7%AB%A0-%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%A3%80%E6%B5%8B.md)
+
 [第10-DOM](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC10-DOM.md)
 
 [第14章-表单脚本](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC14%E7%AB%A0-%E8%A1%A8%E5%8D%95%E8%84%9A%E6%9C%AC.md)
