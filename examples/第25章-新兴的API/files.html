@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>files</title>
+  <style>
+    span{
+      display: inline-block;
+      margin: 0 10px;
+    }
+  </style>
 </head>
 <body>
   <input type="file" class="files" multiple>
@@ -24,13 +30,14 @@
 
     $files.addEventListener('change', (e) => {
       let target, files, isImg, readAs
-      let fileReader = new FileReader()
 
       e = e || event
       target = e.target || e.srcElement
       files = target.files
 
       Array.from(files).forEach((file, i) => {
+        let fileReader = new FileReader()
+
         if (/image/.test(file.type)) {
           isImg = true
           readAs = 'readAsDataURL'
@@ -40,11 +47,12 @@
         }
         
         fileReader[readAs](file)
+        fileReader.onload = () => {
+          insertShtml(genShtml(fileReader.result, isImg))
+        }
       })
       
-      fileReader.onload = () => {
-        insertShtml(genShtml(fileReader.result, isImg))
-      }
+      
     }, false)
   </script>
 </body>
