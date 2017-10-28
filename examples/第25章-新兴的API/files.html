@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>files</title>
+</head>
+<body>
+  <input type="file" class="files" multiple>
+  <script>
+    let $files = document.querySelector('.files')
+
+    $files.addEventListener('change', (e) => {
+      let target, files
+
+      e = e || event
+      target = e.target || e.srcElement
+      files = target.files
+
+      Array.from(files).forEach((file, i) => {
+        console.table(file)
+      })
+    }, false)
+  </script>
+</body>
+</html>
