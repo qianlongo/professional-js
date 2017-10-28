@@ -8,19 +8,43 @@
 </head>
 <body>
   <input type="file" class="files" multiple>
+  <div class="output"></div>
   <script>
     let $files = document.querySelector('.files')
+    let $output = document.querySelector('.output')
+
+    let genShtml = (sHtml, isImg) => {
+      return isImg ? `
+        <img src="${sHtml}" height="100">
+      ` : `<span>${sHtml}</span>`
+    }
+    let insertShtml = (sHtml) => {
+      $output.innerHTML += sHtml
+    }
 
     $files.addEventListener('change', (e) => {
-      let target, files
+      let target, files, isImg, readAs
+      let fileReader = new FileReader()
 
       e = e || event
       target = e.target || e.srcElement
       files = target.files
 
       Array.from(files).forEach((file, i) => {
-        console.table(file)
+        if (/image/.test(file.type)) {
+          isImg = true
+          readAs = 'readAsDataURL'
+        } else {
+          isImg = false
+          readAs = 'readAsText'
+        }
+        
+        fileReader[readAs](file)
       })
+      
+      fileReader.onload = () => {
+        insertShtml(genShtml(fileReader.result, isImg))
+      }
     }, false)
   </script>
 </body>

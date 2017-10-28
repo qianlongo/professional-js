@@ -15,3 +15,42 @@ name: 本地文件系统中的文件名
 size: 文件的字节大小
 type: 字符串，文件的MIME类型
 lastModifiedDate: 字符串，文件上一次被修改的时间（只有Chrome实现了这个属性）
+
+**文件信息获取示例**
+html
+
+``` html
+
+<input type="file" class="files" multiple>
+
+```
+
+javascript
+
+``` javascript
+
+let $files = document.querySelector('.files')
+
+  $files.addEventListener('change', (e) => {
+    let target, files
+
+    e = e || event
+    target = e.target || e.srcElement
+    files = target.files
+
+    Array.from(files).forEach((file, i) => {
+      console.table(file)
+    })
+  }, false)
+
+
+```
+
+## 25.4.1 FileReader类型
+
+> FileReader类型实现的是一种异步文件读取机制，可以把FileReader想象成XMLHttpRequest，区别只是它读取的是文件系统，而不是远程服务器。问了读取文件中的数据，FileReader提供了以下几个方法。
+
+
+
+
+
