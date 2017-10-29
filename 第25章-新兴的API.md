@@ -58,6 +58,20 @@ let $files = document.querySelector('.files')
 
 4. readArrayBuffer(file): 读取文件并将一个包含文件内容的ArrayBuffer保存在result属性中。
 
+**由于读取文件的过程是异步的，因为FileReader也提供了几个事件，其中最有用的三个事件是progress，error，load，分别表示是否又读取了数据，是否发生错误以及是否已经读完了整个文件**
+
+每隔50ms左右，就会触发一次progress事件，通过事件对象可以获得与XHR的progress事件相同的信息。lengthComputed,loaded,total,另外尽管可能没有包含全部数据但是每次progress事件中都可以通过FileReader的result属性读取到文件内容。
+
+由于种种原因无法读取文件，就会触发error事件，触发error事件时，相关的信息将会保存到FileReader的error属性中，这个属性中将保存一个对象，该对象只有一个属性code，即错误码，这个错误码是
+
+1. 表示未找到文件
+2. 表示安全性错误
+3. 表示读取中断
+4. 表示文件不可读
+5. 表示编码错误
+
+文件成功加载后会触发load事件，如果发生了error事件就不会触发load事件。 
+
 
 
 
