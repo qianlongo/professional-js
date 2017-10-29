@@ -22,7 +22,7 @@
     let genShtml = (sHtml, isImg) => {
       return isImg ? `
         <img src="${sHtml}" height="100">
-      ` : `<span>${sHtml}</span>`
+      ` : `<pre>${sHtml}</pre>`
     }
     let insertShtml = (sHtml) => {
       $output.innerHTML += sHtml
@@ -49,6 +49,11 @@
         fileReader[readAs](file)
         fileReader.onload = () => {
           insertShtml(genShtml(fileReader.result, isImg))
+        }
+        fileReader.onprogress = (e) => {
+          if (e.lengthComputable) {
+            console.log(e.loaded, e.total)
+          }
         }
       })
       
