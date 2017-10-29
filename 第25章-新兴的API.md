@@ -50,6 +50,15 @@ let $files = document.querySelector('.files')
 
 > FileReader类型实现的是一种异步文件读取机制，可以把FileReader想象成XMLHttpRequest，区别只是它读取的是文件系统，而不是远程服务器。问了读取文件中的数据，FileReader提供了以下几个方法。
 
+1. readAsText(file, encoding)： 以纯文本形式读取文件，将读取到的文本保存在result属性中
+
+2. readAsDataURL(file): 读取文件并将文件以数据URI的形式保存在result属性中。
+
+3. readAsBinaryString(file): 读取文件并将一个字符串保存在result属性中，字符串中的每个字符表示一个字节。
+
+4. readArrayBuffer(file): 读取文件并将一个包含文件内容的ArrayBuffer保存在result属性中。
+
+
 
 
 
