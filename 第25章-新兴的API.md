@@ -93,6 +93,16 @@ function blobSlice (blob, startByte, length) {
 
 ```
 
+具体例子可以查看/examples/第25章-新兴的API/files2.html
+
+这种特性允许只读取部分内容可以节省很多时间，非常适合只关注数据中某个特性部分（比如文件头部）的情况
+
+25.4.3 对象URL
+
+25.4.4 读取拖放的文件
+
+> 围绕文件信息，结合使用的HTML5 API和文件API，可以做出很赞的东西来。与拖放一张图片或者一个链接类似，从桌面上把文件拖放到浏览器中也会触发drop事件，而且可以在event.dataTransfer.files中读取到被放置的文件，当然此时他是一个File对象，与通过文件输入字段取得的File对象一样
+
 
 
 
