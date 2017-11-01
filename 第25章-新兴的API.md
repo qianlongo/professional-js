@@ -76,6 +76,23 @@ let $files = document.querySelector('.files')
 
 > 有时候，我们只想读取文件的一部分内容而不是全部内容，为此，File对象还支持一个slice方法，这个方法在Firefox中叫mozSlice，在chrome中叫做webkitSlice，其接受两个参数，起始字节，以及要读取的字节数。这个方法返回一个Blob的实例，Blob是File类型的父类型。下面是一个兼容的方法
 
+``` javascript
+
+function blobSlice (blob, startByte, length) {
+  if (blob.slice) {
+    return blob.slice(startByte, length)
+  } else if (blob.webkitSlice) {
+    return blob.webkitSlice(startByte, length)
+  } else if (blob.mozSlice) {
+    return blob.mozSlice(startByte, length)
+  } else {
+    return null
+  }
+}
+
+
+```
+
 
 
 
