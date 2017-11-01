@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 300px;
+      border: solid 1px green;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <span>将文件拖进此处</span>
+    <ul class="files-info"></ul>
+  </div>
+  
+  <script>
+    let $target = document.querySelector('.box')
+    let $fileInfo = document.querySelector('.files-info')
+    let files
+    let cLi = (file) => {
+      return `
+        <li>
+          <span>${file.name}</span><br />
+          <span>${file.size}</span><br />
+          <span>${file.type}</span><br />
+        </li>
+      `
+    }
+    let handle = (e) => {
+      e = e || window.event
+
+      e.preventDefault()
+      if (e.type === 'drop') {
+        files = e.dataTransfer.files
+        Array.from(files).forEach((file) => {
+          $fileInfo.innerHTML += cLi(file)
+        })
+      }
+      
+    }  
+    $target.addEventListener('dragenter', handle, false)
+    $target.addEventListener('dragover', handle, false)
+    $target.addEventListener('drop', handle, false)
+  </script>
+</body>
+</html> 

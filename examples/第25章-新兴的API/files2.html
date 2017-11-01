@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>files</title>
+  <style>
+    span{
+      display: inline-block;
+      margin: 0 10px;
+    }
+  </style>
+</head>
+<body>
+  <input type="file" class="files" multiple>
+  <div class="output"></div>
+  <script>
+    let $files = document.querySelector('.files')
+    let $output = document.querySelector('.output')
+    let blobSlice = (blob, startByte, length) => {
+      if (blob.slice) {
+        return blob.slice(startByte, length)
+      } else if (blob.webkitSlice) {
+        return blob.webkitSlice(startByte, length)
+      } else if (blob.mozSlice) {
+        return blob.mozSlice(startByte, length)
+      } else {
+        return null
+      }
+    }
+    let genShtml = (sHtml, isImg) => {
+      return isImg ? `
+        <img src="${sHtml}" height="100">
+      ` : `<pre>${sHtml}</pre>`
+    }
+    let insertShtml = (sHtml) => {
+      $output.innerHTML += sHtml
+    }
+
+    $files.addEventListener('change', (e) => {
+      let target, files, isImg, readAs
+
+      e = e || event
+      target = e.target || e.srcElement
+      files = target.files
+
+      Array.from(files).forEach((file, i) => {
+        let fileReader = new FileReader()
+
+        if (/image/.test(file.type)) {
+          isImg = true
+          readAs = 'readAsDataURL'
+        } else {
+          isImg = false
+          readAs = 'readAsText'
+        }
+        
+        fileReader[readAs](blobSlice(file, 5, 10))
+        fileReader.onload = () => {
+          insertShtml(genShtml(fileReader.result, isImg))
+        }
+        fileReader.onprogress = (e) => {
+          if (e.lengthComputable) {
+            console.log(e.loaded, e.total)
+          }
+        }
+      })
+      
+      
+    }, false)
+  </script>
+</body>
+</html> 
