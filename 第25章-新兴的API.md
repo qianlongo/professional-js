@@ -72,6 +72,9 @@ let $files = document.querySelector('.files')
 
 文件成功加载后会触发load事件，如果发生了error事件就不会触发load事件。 
 
+## 25.4.2 读取部分内容
+
+> 有时候，我们只想读取文件的一部分内容而不是全部内容，为此，File对象还支持一个slice方法，这个方法在Firefox中叫mozSlice，在chrome中叫做webkitSlice，其接受两个参数，起始字节，以及要读取的字节数。这个方法返回一个Blob的实例，Blob是File类型的父类型。下面是一个兼容的方法
 
 
 
