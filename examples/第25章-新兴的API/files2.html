@@ -56,7 +56,8 @@
           readAs = 'readAsText'
         }
         
-        fileReader[readAs](blobSlice(file, 5, 10))
+        // fileReader[readAs](blobSlice(file, 5, 10))
+        fileReader[readAs](file)
         fileReader.onload = () => {
           insertShtml(genShtml(fileReader.result, isImg))
         }
