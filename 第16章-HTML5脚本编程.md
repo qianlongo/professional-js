@@ -34,3 +34,7 @@ iframeWindow.postMessage('A secret', 'http://www.wrox.com')
 1. event.source大多数情况下只是window对象的代理，并非是实际的window对象，换句话说，不能通过这个代理对象拿到window对象的其他任何信息，记住，只通过这个代理调用postMessage就好，这个方法永远存在。
 
 2. XDM还有一些怪异之处，首先就是postMessage的第一个参数最早是作为“永远都是字符串”来实现的，但是后来这个参数定义改了，改成允许传入任何数据结构，可是并非所有的浏览器都实现了这一变化，为了保险起见，使用postMessage时，最好还是只传字符串，如果要传结构化后的数据，最佳选择是现在要传入的数据上调用JSON.stringfy,通过postMessage传入得到的字符串，然后再在onmessage事件处理程序中调用JSON.parse
+
+## 16.2.1 拖放事件
+
+

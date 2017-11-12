@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>原生拖放</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    .drag{
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: green;
+      display: inline-block;
+    }
+    .drag.pink{
+      background: pink;
+    }
+    
+    .target{
+      width: 400px;
+      margin-top: 100px; 
+    }
+    .target li{
+      height: 30px;
+      line-height: 30px;
+      border: solid 1px green;
+      text-align: center;
+    }
+
+    .color-red{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="drag" draggable="true"></div>
+  <ul class="target">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+  <script>
+    let $drag = null
+    let $target = document.querySelector('.target')
+
+    document.addEventListener('dragstart', (e) => {
+      let { target } = e
+      $drag = target
+      target.className += ' pink'
+    }, false)
+    document.addEventListener('drag', (e) => {
+      // console.log(e.type)
+    }, false)
+    document.addEventListener('dragend', (e) => {
+      let { target, type } = e
+      target.className = 'drag'
+    }, false)
+
+    document.addEventListener('dragover', (e) => {
+      e.preventDefault()
+    }, false)
+    document.addEventListener('dragenter', (e) => {
+      let { target } = e
+      
+      if (target.tagName === 'LI') {
+        target.className += ' color-red'
+      }
+    }, false)
+    document.addEventListener('dragleave', (e) => {
+      let { target } = e
+      
+      if (target.tagName === 'LI') {
+        target.className = ''
+      }
+    }, false)
+    document.addEventListener('drop', (e) => {
+      let { target } = e
+      
+      if (target.tagName === 'LI') {
+        target.className = ''
+        $drag.parentNode.removeChild($drag)
+        target.appendChild($drag)
+      }
+    }, false)
+  </script>
+</body>
+</html>
