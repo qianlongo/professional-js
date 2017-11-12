@@ -16,7 +16,7 @@
 <body>
   <div class="child"></div>
   <script>
-    var childArr  = ['child']
+    let childArr  = ['child']
     window.childArr = childArr
     console.log(`childArr, ${childArr}, ${(childArr instanceof Array)}`)
     window.addEventListener('message', (e) => {

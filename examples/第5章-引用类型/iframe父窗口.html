@@ -7,14 +7,13 @@
   <title>在iframe中判断是否为数组父窗口</title>
 </head>
 <body>
-  <iframe src="./iframe子窗口.html" frameborder="0" id="child-iframe"></iframe>
+  <iframe src="http://child.haha.com/第5章-引用类型/iframe子窗口.html" frameborder="0" id="child-iframe"></iframe>
   <script>
-    var parent = ['parent']
-    var childWin = document.getElementById('child-iframe').contentWindow
-    // console.log(childWin)
+    let parent = ['parent']
+    let childWin = document.getElementById('child-iframe').contentWindow
     console.log(`child, ${childWin.childArr}`)
     setTimeout(() => {
-      childWin.postMessage('message from parent', '*')
+      childWin.postMessage('message from parent', 'http://child.haha.com/')
     }, 2000)
   </script>
 </body>
