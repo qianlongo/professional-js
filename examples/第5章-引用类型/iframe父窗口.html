@@ -13,6 +13,9 @@
     var childWin = document.getElementById('child-iframe').contentWindow
     // console.log(childWin)
     console.log(`child, ${childWin.childArr}`)
+    setTimeout(() => {
+      childWin.postMessage('message from parent', '*')
+    }, 2000)
   </script>
 </body>
 </html>

@@ -17,7 +17,12 @@
   <div class="child"></div>
   <script>
     var childArr  = ['child']
+    window.childArr = childArr
     console.log(`childArr, ${childArr}, ${(childArr instanceof Array)}`)
+    window.addEventListener('message', (e) => {
+      let { origin, data, source } = e
+      console.log(origin, data, source)
+    }, false)
   </script>
 </body>
 </html>
