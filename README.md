@@ -14,13 +14,19 @@
 
 [第7章-函数表达式](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC7%E7%AB%A0-%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F.md)
 
+[第8章-BOM](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC8%E7%AB%A0-BOM.md)
+
 [第9章-客户端检测](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC9%E7%AB%A0-%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%A3%80%E6%B5%8B.md)
 
 [第10-DOM](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC10-DOM.md)
 
+[第13章-事件](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC13%E7%AB%A0-%E4%BA%8B%E4%BB%B6.md)
+
 [第14章-表单脚本](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC14%E7%AB%A0-%E8%A1%A8%E5%8D%95%E8%84%9A%E6%9C%AC.md)
 
 [第15章-使用canvas绘图](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC15%E7%AB%A0-%E4%BD%BF%E7%94%A8canvas%E7%BB%98%E5%9B%BE.md)
+
+[第16章-HTML5脚本编程](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC16%E7%AB%A0-HTML5%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B.md)
 
 [第17章-错误处理与调试](https://github.com/qianlongo/professional-js/blob/master/%E7%AC%AC17%E7%AB%A0-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E4%B8%8E%E8%B0%83%E8%AF%95.md)
 
