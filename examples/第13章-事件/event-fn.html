@@ -15,11 +15,12 @@
 </head>
 <body>
   <script>
-    let showMsg = () => {
-      console.log('hello world')
+    let showMsg = function (val, e) {
+      console.log(val)
+      console.log(e)
     }
   </script>
-  <div class="box" onclick="showMsg()"></div>
+  <div class="box" onclick="showMsg(this.innerHTML, event)">hello world</div>
 
   <script>
     
