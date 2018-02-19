@@ -10,6 +10,9 @@
   <button class="btn">按钮</button>
   <script>
     let btn = document.querySelector('.btn')
+    const handleClick = () => {
+      console.log('hello world 3')
+    }
 
     btn.addEventListener('click', function () {
       console.log('hello world 1')
@@ -18,6 +21,9 @@
     btn.addEventListener('click', function () {
       console.log('hello world 2')
     }, false)
+
+    btn.addEventListener('click', handleClick, false)
+    btn.removeEventListener('click', handleClick, false) // 移除的时候需要和添加的时候参数保持一致
   </script>
 </body>
 </html>
