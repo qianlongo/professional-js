@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button class="btn">按钮</button>
+  <script>
+    let btn = document.querySelector('.btn')
+
+    btn.addEventListener('click', function () {
+      console.log('hello world 1')
+    }, false)
+
+    btn.addEventListener('click', function () {
+      console.log('hello world 2')
+    }, false)
+  </script>
+</body>
+</html>
