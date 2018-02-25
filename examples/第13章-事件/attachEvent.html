@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button>点击</button>
+  <script>
+    let $btn = document.querySelector('button')
+    const handle = function () {
+      console.log(this)
+    }
+    // 添加事件
+    $btn.attachEvent('onclick', handle)
+    // 移除事件
+    $btn.detachEvent('onclick', handle)
+  </script>
+</body>
+</html>
