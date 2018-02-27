@@ -19,11 +19,27 @@
       }
     }
 
-    const $btn = document.querySelector('.btn')
+    const removeHandler = (element, type, handler) => {
+      if (element.removeEventListener) {
+        element.removeEventListener(type, handler, false)
+      } else if (element.detachEvent) {
+        element.detachEvent(`on${type}`, handler)
+      } else {
+        element[`on${type}`] = null
+      }
+    }
 
-    addHandler($btn, 'click', function () {
+    const $btn = document.querySelector('.btn')
+    const logClassName = function () {
       console.log(this.className)
+    }
+
+    addHandler($btn, 'click', logClassName)
+    addHandler($btn, 'click', function () {
+      console.log('hello world')
     })
+
+    removeHandler($btn, 'click', logClassName)
   </script>
 </body>
 </html>
