@@ -23,7 +23,17 @@
   <div class="box" onclick="showMsg(this.innerHTML, event)">hello world</div>
 
   <script>
+    let $btn = document.querySelector('.box')
+
+    const logEventType = (event) => {
+      console.log(event.type)
+    }
+
+    $btn.onclick = logEventType
+    $btn.addEventListener('click', logEventType, false)
     
+
+
   </script>
 </body>
 </html>
