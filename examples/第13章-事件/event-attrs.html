@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button>ahhaha</button>
+  <button class="btn">点击</button>
+  <script>
+    let $body = document.body
+    let $btn = document.querySelector('.btn')
+
+    $btn.addEventListener('click', function (e) {
+      console.log(e)
+    }, false)
+
+    $body.addEventListener('click', function (e) {
+      console.log(e)
+    }, false)
+  </script>
+</body>
+</html>
