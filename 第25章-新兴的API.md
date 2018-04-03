@@ -109,3 +109,4 @@ function blobSlice (blob, startByte, length) {
 > 随着Web应用复杂性的与日俱增，越来越复杂的计算在所难免，长时间运行的JavaScript进行会导致浏览器冻结用户界面，让人感觉屏幕“冻结”了，Web Workers规范通过让JavaScript在后台运行解决了这个问题，浏览器实现Web Worker的方式有很多种，可以使用线程，后台进程或者运行在其他处理器上的进程，等等。怎么实现细节其实没有那么重要，重要的是开发人员现在可以放心地运行JavaScript而不必担心影响用户体验了。
 
 
+
